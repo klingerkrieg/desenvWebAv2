@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\A;
+use App\Models\Bar;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class AController extends Controller {
-    
+class BarController extends Controller
+{
     public function list(Request $request){
 
-        $pagination = A::orderBy("name");
-        
+        $pagination = Bar::orderBy("name");
+
         if (isset($request->search))
             $pagination->where("name","like","%$request->search%");
-        
-        return view("a.list", ["list"=>$pagination->paginate(5)]);
+
+        return view("bar.list", ["list"=>$pagination->paginate(5)]);
     }
 
     public function create(){
-        return view("a.form", ["item"=>new A()]);
+        return view("bar.form", ["item"=>new Bar()]);
     }
 
-    public function edit(A $a){
-        return view("a.form",["item"=>$a]);
+    public function edit(Bar $bar){
+        return view("bar.form",["item"=>$bar]);
     }
 
     protected function validator(array $data) {
@@ -34,21 +34,21 @@ class AController extends Controller {
 
     public function store(Request $request){
         $this->validator($request->all())->validate();
-        
+
         $data = $request->all();
-        $a = A::create($data);
-        return redirect(route("a.edit",$a))->with("success","Data saved!");
+        $bar = Bar::create($data);
+        return redirect(route("bar.edit",$bar))->with("success","Data saved!");
     }
 
-    public function destroy(A $a){
-        $a->delete();
-        return redirect(route("a.list"))->with("success","Data deleted!");
+    public function destroy(Bar $bar){
+        $bar->delete();
+        return redirect(route("bar.list"))->with("success","Data deleted!");
     }
 
-    public function update(A $a, Request $request) {
+    public function update(Bar $bar, Request $request) {
         $this->validator($request->all())->validate();
         $data = $request->all();
-        $a->update($data);
+        $bar->update($data);
         return redirect()->back()->with("success","Data updated!");
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBSTable extends Migration
+class CreateBarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateBSTable extends Migration
      */
     public function up()
     {
-        Schema::create('b_s', function (Blueprint $table) {
+        Schema::create('bars', function (Blueprint $table) {
             $table->id();
             $table->string("name");
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateBSTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('b_s');
+        Schema::dropIfExists('bars');
     }
 }

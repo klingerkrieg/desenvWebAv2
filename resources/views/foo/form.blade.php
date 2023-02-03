@@ -5,16 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Cadastro de A</div>
+                <div class="card-header">Cadastro de Foo</div>
 
                 <div class="card-body">
 
                     @if ($item->exists)
-                    <form method="POST" id='main' action="{{ route('a.update',$item) }}">
+                    <form method="POST" id='main' action="{{ route('foo.update',$item) }}">
                         @method('PUT')
                         @csrf
                     @else
-                    <form method="POST" id='main' action="{{ route('a.store') }}">
+                    <form method="POST" id='main' action="{{ route('foo.store') }}">
                         @csrf
                     @endif
 
@@ -33,22 +33,22 @@
                         </div>
                     </form>
 
-                    
+
                     <div class="row gap-2">
-                
+
                         <button type="submit" class="btn btn-primary col-sm-2" form="main">
                             Salvar
                         </button>
-            
-                        <a href='{{route('a.create')}}' class="btn btn-secondary col-sm-2">
+
+                        <a href='{{route('foo.create')}}' class="btn btn-secondary col-sm-2">
                             Novo
                         </a>
-            
-                        <a href='{{route('a.list')}}' class="btn btn-secondary col-sm-2">
+
+                        <a href='{{route('foo.list')}}' class="btn btn-secondary col-sm-2">
                             Listar
                         </a>
                         @if ($item->exists)
-                            <form name='delete' action="{{route('a.destroy',$item)}}" 
+                            <form name='delete' action="{{route('foo.destroy',$item)}}"
                                 method="post"
                                 class="col-sm-2"
                                 style='display: inline-block;padding:0px;'>
@@ -60,8 +60,8 @@
                             </form>
                         @endif
                     </div>
-                    
-                    
+
+
                 </div>
             </div>
         </div>
@@ -72,8 +72,8 @@
 
 
 
-    
-    
+
+
 </div>
 
 

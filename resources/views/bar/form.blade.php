@@ -5,16 +5,16 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Cadastro de B</div>
+                <div class="card-header">Cadastro de Bar</div>
 
                 <div class="card-body">
 
                     @if ($item->exists)
-                    <form method="POST" id='main' action="{{ route('b.update',$item) }}">
+                    <form method="POST" id='main' action="{{ route('bar.update',$item) }}">
                         @method('PUT')
                         @csrf
                     @else
-                    <form method="POST" id='main' action="{{ route('b.store') }}">
+                    <form method="POST" id='main' action="{{ route('bar.store') }}">
                         @csrf
                     @endif
 
@@ -34,20 +34,20 @@
                     </form>
 
                     <div class="row gap-2">
-                
+
                         <button type="submit" class="btn btn-primary col-sm-2" form="main">
                             Salvar
                         </button>
-            
-                        <a href='{{route('b.create')}}' class="btn btn-secondary col-sm-2">
+
+                        <a href='{{route('bar.create')}}' class="btn btn-secondary col-sm-2">
                             Novo
                         </a>
-            
-                        <a href='{{route('b.list')}}' class="btn btn-secondary col-sm-2">
+
+                        <a href='{{route('bar.list')}}' class="btn btn-secondary col-sm-2">
                             Listar
                         </a>
                         @if ($item->exists)
-                            <form name='delete' action="{{route('b.destroy',$item)}}" 
+                            <form name='delete' action="{{route('bar.destroy',$item)}}"
                                 method="post"
                                 class="col-sm-2"
                                 style='display: inline-block;padding:0px;'>
@@ -59,7 +59,7 @@
                             </form>
                         @endif
                     </div>
-                    
+
                 </div>
             </div>
         </div>

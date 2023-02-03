@@ -5,39 +5,39 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Busca de A</div>
+                <div class="card-header">Busca de Bar</div>
 
                 <div class="card-body">
-                    <form method="GET" action="{{ route('a.list') }}">
+                    <form method="GET" action="{{ route('bar.list') }}">
                         @csrf
-            
+
                         <div class="row mb-3">
                             <label for="subject" class="col-md-4 col-form-label text-md-right">
                                 {{ __('Search') }}</label>
-            
+
                             <div class="col-md-6">
-                                <input id="search" type="text" 
-                                        class="form-control" 
-                                        name="search" value="{{ old('search') }}" 
+                                <input id="search" type="text"
+                                        class="form-control"
+                                        name="search" value="{{ old('search') }}"
                                         autofocus>
-            
+
                             </div>
                         </div>
-            
-                        
+
+
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     Buscar
                                 </button>
-            
-                                <a href='{{route("a.create")}}' class="btn btn-primary">
+
+                                <a href='{{route("bar.create")}}' class="btn btn-primary">
                                     Cadastrar novo
                                 </a>
                             </div>
                         </div>
                     </form>
-            
+
                     <table class="table">
                         <thead>
                           <tr>
@@ -50,13 +50,13 @@
                         @foreach ($list as $item)
                             <tr>
                                 <td>
-                                    <a href="{{route("a.edit",$item)}}" class="btn btn-primary">
+                                    <a href="{{route("bar.edit",$item)}}" class="btn btn-primary">
                                         {{ __('Edit') }}
                                     </a>
                                 </td>
                                 <td>{{ $item->name }}</td>
                                 <td>
-                                    <form action="{{route('a.destroy',$item)}}" method="post">
+                                    <form action="{{route('bar.destroy',$item)}}" method="post">
                                         @csrf
                                         @method("DELETE")
                                         <button type="submit" class="btn btn-danger">
@@ -68,9 +68,9 @@
                         @endforeach
                         </tbody>
                       </table>
-            
+
                     {{ $list->links() }}
-                    
+
                 </div>
             </div>
         </div>
